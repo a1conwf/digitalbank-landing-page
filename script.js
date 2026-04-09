@@ -8,7 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	let resizeTimer;
 
-	AOS.init({ duration: 700, once: true, easing: "ease-out" });
+	AOS.init({
+		duration: 900,
+		once: true,
+		offset: 80,
+		delay: 40,
+		easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+		anchorPlacement: "top-bottom",
+		disable: () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+	});
 
 	const setMenuOpen = (isOpen) => {
 		if (!hamburgerButton || !nav || !closeButton) return;
